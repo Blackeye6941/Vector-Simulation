@@ -8,12 +8,16 @@ bool appxEqual(double a, double b){
 	return std::abs(a-b) <= 1e-9;
 }
 int main(){
-	Vec3 a = {4,2,1};
-	Vec3 b = {3,1,5};
-	Vec3 sum = add(a,b);
+	constexpr Vec3 a = {4,2,1};
+	constexpr Vec3 b = {3,1,5};
+	constexpr Vec3 sum = a+b;
 	assert(sum.x == 7 && sum.y == 3 && sum.z == 6);
-	Vec3 diff = sub(a,b);
+	constexpr Vec3 diff = a-b;
 	assert(diff.x == 1 && diff.y == 1 && diff.z == -4);
+	constexpr Vec3 mul = a*2.0;
+	assert(mul.x == 8 && mul.y == 4 && mul.z == 2);
+	constexpr Vec3 div = a/2.0;
+	assert(div.x == 2 && div.y == 1 && div.z == 0.5);
 	assert(appxEqual(magnitude(a), std::sqrt(21.0)));
 	Vec3 c = cross(a,b);
 	assert(c.x==9 && c.y == -17 && c.z == -2);
