@@ -33,6 +33,13 @@ constexpr Vec3 operator/(const Vec3 &a, double b) noexcept {
 		a.z/b
 	};
 }
+constexpr Vec3 operator-(const Vec3 &a) noexcept {
+	return {
+		-a.x,
+		-a.y,
+		-a.z
+	};
+}
 double magnitude(Vec3 a);
 double dot(Vec3 a, Vec3 b);
 Vec3 cross(Vec3 a, Vec3 b);
