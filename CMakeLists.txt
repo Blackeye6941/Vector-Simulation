@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.20)
+project(Sim LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+add_executable(Sim src/main.cpp src/Vec3.cpp)
+target_include_directories(Sim PRIVATE include)
+target_compile_options(Sim PRIVATE -Wall -Wextra -Wpedantic)
