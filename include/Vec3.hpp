@@ -1,7 +1,11 @@
 #ifndef VEC3_HPP
 #define VEC3_HPP
-struct alignas(alignof(double)) Vec3{
+#include<optional>
+struct alignas(32) Vec3{
 	double x,y,z;
+	double length_squared() const noexcept;
+	double length() const noexcept;
+	std::optional<Vec3> unit() const;
 };
 
 constexpr Vec3 operator+(const Vec3 &a, const Vec3 &b) noexcept{
@@ -40,7 +44,6 @@ constexpr Vec3 operator-(const Vec3 &a) noexcept {
 		-a.z
 	};
 }
-double magnitude(Vec3 a);
-double dot(Vec3 a, Vec3 b);
-Vec3 cross(Vec3 a, Vec3 b);
+double dot(const Vec3 &a, const Vec3 &b);
+Vec3 cross(const Vec3 &a, const Vec3 &b);
 #endif
